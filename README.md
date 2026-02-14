@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [leave planner] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [Echo hack]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [fathima fidha] -[pptm arts and science collage]
+- Member 2: [ayisha ] - [pptm arts and science collage]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[https://fidhaneenu77-ux.github.io/tink-her-hack-temp/]
 
 ### Project Description
-[2-3 lines about what your project does]
+[ this application also provides advanced planning features.it calcutate how many additoinal hours a student needs to attend in order to reach 85a5 attdence.additoinaly the system determains how many leaves days a student can be safelty take without droping belows the required attadence percertange]
 
 ### The Problem statement
-[What problem are you solving?]
+[ accurately track their correct attadence percetages.know how many  more classes /hours they need to attended to reach a higher target ]
 
 ### The Solution
-[How are you solving it?]
+[allows student to enter total conducted  classes and attended classes.calcultes how many additional calsses are requred to reach a higher task]
 
 ---
 
@@ -31,10 +31,8 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: [e.g., css,html]
+- Tools used: [e.g., VS Code, Git]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -46,10 +44,10 @@
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [mimimum attadence check (75%)]
+- Feature 2: [target attdence caluclutaon]
+- Feature 3: [leaves planning features]
+- Feature 4: [attedence allowed system]
 
 ---
 
@@ -83,13 +81,13 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
+![](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/login%20page.png)
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/details%20page.png)
 *Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
+![](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/attendance%20page.png)
 *Add caption explaining what this shows*
 
 #### Diagrams
