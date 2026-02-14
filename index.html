@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Attendance App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center mb-20">
+            <h1>Welcome Back</h1>
+            <p>Sign in to your attendance tracker</p>
+        </div>
+
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username">
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+
+        <p id="error" class="error-msg"></p>
+
+        <button class="btn" onclick="login()">Sign In</button>
+
+        <p class="text-center mt-20 text-muted">
+            Don't have an account? <a href="signup.html">Sign up</a>
+        </p>
+    </div>
+
+    <script>
+        // If already logged in, redirect to dashboard
+        if (localStorage.getItem('sessionLoggedIn') === 'true') {
+            window.location.href = 'leave planner.html';
+        }
+
+        function login() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('error');
+
+            if (!username || !password) {
+                errorEl.textContent = 'Please fill in all fields.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+
+            if (username === savedUsername && password === savedPassword) {
+                localStorage.setItem('sessionLoggedIn', 'true');
+                window.location.href = 'leave planner.html';
+            } else {
+                errorEl.textContent = 'Invalid username or password.';
+                errorEl.style.display = 'block';
+            }
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') login();
+        });
+    </script>
+</body>
+
+</html>
