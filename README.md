@@ -81,14 +81,14 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/login%20page.png)
-*Add caption explaining what this shows*
+![login page](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/login%20page.png)
+*attendance login page*
 
-![](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/details%20page.png)
-*Add caption explaining what this shows*
+![details page](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/details%20page.png)
+*hours attendance page*
 
-![](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/attendance%20page.png)
-*Add caption explaining what this shows*
+![attendance page](https://github.com/fidhaneenu77-ux/tink-her-hack-temp/blob/main/attendance%20page.png)
+*overoll percentage*
 
 #### Diagrams
 
