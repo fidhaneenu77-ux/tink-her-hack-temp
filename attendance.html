@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator — Attendance App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Attendance Calculator</h1>
+        </div>
+        <p class="text-muted mb-20">Check your attendance status and plan ahead.</p>
+
+        <div class="input-group">
+            <label for="totalHours">Total Hours Conducted</label>
+            <input type="number" id="totalHours" placeholder="e.g., 100">
+        </div>
+
+        <div class="input-group">
+            <label for="attendedHours">Hours Attended</label>
+            <input type="number" id="attendedHours" placeholder="e.g., 80">
+        </div>
+
+        <button class="btn" onclick="calculateAttendance()">Check Status</button>
+
+        <div id="result" class="result-box" style="display: none;">
+            <!-- Results will be shown here -->
+        </div>
+
+        <div class="mt-20">
+            <a href="leave planner.html">&larr; Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        function calculateAttendance() {
+            const total = parseFloat(document.getElementById('totalHours').value);
+            const attended = parseFloat(document.getElementById('attendedHours').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(total) || isNaN(attended) || total <= 0 || attended < 0) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = "<p class='status-bad'>Please enter valid positive numbers.</p>";
+                return;
+            }
+
+            if (attended > total) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = "<p class='status-bad'>Attended hours cannot be greater than total hours.</p>";
+                return;
+            }
+
+            const percentage = (attended / total) * 100;
+            let statusClass = percentage >= 75 ? 'status-good' : 'status-bad';
+
+            let html = `<h3>Current: <span class="${statusClass}">${percentage.toFixed(2)}%</span></h3>`;
+
+            // 1. Check for 75% Requirement
+            if (percentage < 75) {
+                // (attended + needed) / (total + needed) = 0.75
+                // 0.25 * needed = 0.75 * total - attended
+                const neededFor75 = Math.ceil((0.75 * total - attended) / 0.25);
+                html += `<p class="status-bad">Below 75% minimum requirement.</p>`;
+                html += `<p>Attend <strong>${neededFor75}</strong> more consecutive hours to reach 75%.</p>`;
+            } else {
+                // Buffer: attended / (total + buffer) = 0.75
+                // buffer = (attended - 0.75 * total) / 0.75
+                const bufferHours = Math.floor((attended - 0.75 * total) / 0.75);
+                html += `<p class="status-good">Above 75% — you're safe.</p>`;
+                html += `<p>You can miss up to <strong>${bufferHours}</strong> hours and stay above 75%.</p>`;
+            }
+
+            // 2. Check for 85% Target
+            if (percentage < 85) {
+                // (attended + needed) / (total + needed) = 0.85
+                // 0.15 * needed = 0.85 * total - attended
+                const neededFor85 = Math.ceil((0.85 * total - attended) / 0.15);
+                html += `<hr><p>To reach <strong>85%</strong>, attend <strong>${neededFor85}</strong> more consecutive hours.</p>`;
+            } else {
+                html += `<hr><p class="status-good">Above 85% — excellent attendance.</p>`;
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Attendance App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Dashboard</h1>
+            <button class="btn btn-outline" style="width:auto; margin-top:0; padding:6px 14px; font-size:0.8rem;"
+                onclick="logout()">Logout</button>
+        </div>
+        <p class="text-muted mb-20">Welcome, <span id="userName">Student</span></p>
+
+        <hr>
+
+        <h3 class="mt-12">Today's Attendance</h3>
+        <div class="hours">
+            <button class="circle" onclick="toggle(this)">1</button>
+            <button class="circle" onclick="toggle(this)">2</button>
+            <button class="circle" onclick="toggle(this)">3</button>
+            <button class="circle" onclick="toggle(this)">4</button>
+            <button class="circle" onclick="toggle(this)">5</button>
+        </div>
+        <p id="result" class="text-muted">Present hours: 0</p>
+
+        <hr class="mt-20">
+
+        <h3 class="mt-12">Quick Links</h3>
+        <div class="nav-links">
+            <a href="details.html">Student Details</a>
+            <a href="attendance.html">Attendance Calculator</a>
+        </div>
+    </div>
+
+    <script>
+        // Session check
+        if (localStorage.getItem('sessionLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+
+        // Display username
+        const savedUser = localStorage.getItem('username');
+        if (savedUser) {
+            document.getElementById('userName').textContent = savedUser;
+        }
+
+        // Toggle hour attendance
+        function toggle(btn) {
+            btn.classList.toggle('present');
+            calculate();
+        }
+
+        // Calculate present hours
+        function calculate() {
+            let present = document.querySelectorAll('.present').length;
+            document.getElementById('result').textContent = 'Present hours: ' + present;
+        }
+
+        // Logout
+        function logout() {
+            localStorage.removeItem('sessionLoggedIn');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
